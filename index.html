@@ -1,16 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <style>
+    /* CSS para el estilo */
+    #followIcon {
+      position: absolute;
+      font-size: 50px;
+      transition: transform 0.1s ease;
+      pointer-events: none; /* Evita que el ícono interfiera con clics */
+      z-index: 9999; /* Asegura que el ícono esté por encima de otros elementos */
+    }
+  </style>
   <title>Concientización sobre el Autismo</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/contacto.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
- 
 </head>
+
 <body>
   <!-- Encabezado y navegación -->
   <header>
@@ -20,7 +30,6 @@
         <li><a href="cards.html">Características</a></li>
         <li><a href="gallery.html">Galería</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        
       </ul>
     </nav>
   </header>
@@ -38,9 +47,9 @@
       <span class="letra" style="color: darkorange;">O</span>
     </h1>
 
-    <!-- Imagen principal (fuera de una sección para evitar estilos de fondo blanco) -->
+    <!-- Imagen principal -->
     <div class="imagen-principal">
-      <img src="assets/img/autismo_.png" alt="Imagen principal representativa" />
+      <img src="assets/img/autismo_.jpg" alt="Imagen principal representativa" />
     </div>
 
     <!-- ¿Qué es el Autismo? -->
@@ -60,20 +69,65 @@
       </ul>
     </section>
 
-    
+    <!-- Video -->
+    <section class="video-section">
+      <h2>Conocé más sobre el Autismo</h2>
+      <video controls width="100%" poster="assets/img/captura.png">
+        <source src="assets/img/Video.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </section>
+
   </main>
 
-  <!-- Pie de página -->
-  
-    <footer>
-      <p>© 2025 AutismoWeb.</p>
-      <p>Desarrollado por JJR</p>
-      <div class="social-icons">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+  <!-- Carrusel -->
+  <section class="carrusel">
+    <div class="carrusel-container">
+      <div class="carrusel-slide">
+        <img src="assets/img/imagen1.jpg" alt="Imagen 1">
       </div>
+      <div class="carrusel-slide">
+        <img src="assets/img/imagen2.jpg" alt="Imagen 2">
+      </div>
+      <div class="carrusel-slide">
+        <img src="assets/img/imagen3.jpeg" alt="Imagen3">
+      </div>
+    </div>
+    <!-- Controles del carrusel -->
+    <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
+    <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 AutismoWeb.</p>
+    <p>Desarrollado por JJR</p>
+    <div class="social-icons">
+      <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
     <p>© 2025 Proyecto Autismo | Trabajo Práctico UTN</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+
+  <!-- Ícono que seguirá al cursor -->
+  <i class="fas fa-heart" id="followIcon"></i>
+  
+  <script>
+    // JavaScript para seguir al cursor
+    const followIcon = document.getElementById('followIcon');
+
+    document.addEventListener('mousemove', function(event) {
+      const x = event.clientX;
+      const y = event.clientY;
+      followIcon.style.left = x + 'px';
+      followIcon.style.top = y + 'px';
+    });
+  </script>
+
+  <button id="mi-boton">¡Haz clic para saludar!</button>
 </body>
 </html>

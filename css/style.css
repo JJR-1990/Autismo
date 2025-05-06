@@ -1,146 +1,42 @@
 
-  body {
-    padding: 0 10px;
-  }
-
-  main {
-    padding: 1em;
-    width: 100%;
-  }
-
-  header, footer {
-    text-align: center;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav a {
-    margin: 5px 0;
-  }
-
-  /* FORMULARIO */
-  form {
-    width: 100%;
-  }
-
-  
-
-footer {
-  background-color: #022c43;
-  color: rgb(41, 189, 107);
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+:root {
+  --color-primary: #022c43;
+  --color-secondary: #0466c8;
+  --color-accent: #38cbf0;
+  --color-background: #b1cee9;
+  --color-text: #fafbfc;
+  --color-footer: rgb(26, 190, 190);
+  --color-hover: #0d3792;
+  --color-heading: #fffefe;
+  --color-link: rgb(12, 206, 70);
 }
 
-.social-icons {
-  margin-top: 10px;
-}
-
-.social-icons a {
-  color: rgb(12, 206, 70);
-  margin: 0 10px;
-  font-size: 1.5em;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #0d3792;
-}
-
-
+/* Body */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #022c43, #0466c8);
-  color: #fafbfc;
-}
-
-/* Contenedor principal */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Título principal con letras de colores y borde negro */
-
-h1 {
-  text-align: center;
-  color: #fffefe;
-  padding: 30px 20px;
-  text-shadow: black;
-  
-}
-
-/* Letras de colores */
-.letra {
-  display: inline-block;
-  transition: color 0.3s;
-  font-size: 80px; /* Ajustamos el tamaño de cada letra también */
-  position: relative;
-  text-shadow:  
-  3px 3px 6px rgba(0, 0, 0, 0.8),   /* Borde negro */
-  -3px 3px 6px rgba(0, 0, 0, 0.8),
-  3px -3px 6px rgba(0, 0, 0, 0.8),
-  -3px -3px 6px rgba(0, 0, 0, 0.8);
-  padding: 0.8px;
-}
-
-
-/* Letras de colores individuales */
-.letra {
-  display: inline-block;
-  transition: color 0.3s;
-}
-
-.letra:hover {
-  color: black;
-}
-
-
-/* Secciones con fondo blanco y texto oscuro */
-section {
-  width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #b1cee9; 
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #000;
-  box-sizing: border-box;
-}
-
-/* Imagen principal */
-.imagen-principal {
-  width: 80vw;  
-  height: 33vh; 
-  margin: 0 auto;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+  color: var(--color-text);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
 
-.img-ajustada {
+/* Encabezado */
+header, footer {
+  text-align: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-/* Barra de navegación */
+/* Navegación */
 .navbar {
-  background-color: #022c43;
+  background-color: var(--color-primary);
   padding: 10px 0;
+  margin-bottom: 20px;
 }
 
 .navbar ul {
@@ -157,10 +53,66 @@ section {
   color: white;
   font-weight: bold;
   font-size: 16px;
+  transition: color 0.3s;
 }
 
 .navbar a:hover {
-  color: #38cbf0;
+  color: var(--color-accent);
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: var(--color-heading);
+  padding: 30px 20px;
+  text-shadow: black;
+}
+
+.letra {
+  display: inline-block;
+  transition: color 0.3s;
+  font-size: 80px;
+  position: relative;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), -3px 3px 6px rgba(0, 0, 0, 0.8),
+    3px -3px 6px rgba(0, 0, 0, 0.8), -3px -3px 6px rgba(0, 0, 0, 0.8);
+  padding: 0.8px;
+}
+
+.letra:hover {
+  color: black;
+}
+
+/* Secciones */
+section {
+  width: 100%;
+  margin: 40px 0;  
+  padding: 20px;
+  background-color: var(--color-background);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+  box-sizing: border-box;
+  font-size: 1.2em;
+}
+
+/* Imagen principal */
+.imagen-principal {
+  width: 80vw;
+  height: 33vh;
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-ajustada {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Galería */
@@ -181,68 +133,33 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Botones (por si los usás en columna) */
-.botones {
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Cards */
-.cards-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card {
-  width: 90%;
-  margin-bottom: 1em;
-}
-
-/* Galería en pantallas pequeñas */
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-}
-
 /* Footer */
 footer {
-  background-color: #022c43;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-footer);
   text-align: center;
   padding: 20px 0;
-  margin-top: auto;
+  margin-top: 40px;
 }
 
-/* Footer responsivo y colores de redes */
-.social-icons {
+footer .social-icons {
   margin-top: 10px;
 }
 
-.social-icons a {
-  color: rgb(12, 206, 70);
+footer .social-icons a {
+  color: var(--color-link);
   margin: 0 10px;
   font-size: 1.5em;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-  color: #0d3792;
+footer .social-icons a:hover {
+  color: var(--color-hover);
 }
 
-/* MEDIA QUERIES */
+/* Media Queries */
 @media (max-width: 768px) {
-  body {
-    padding: 0 10px;
-  }
-
   main {
     padding: 1em;
     width: 100%;
@@ -252,22 +169,133 @@ footer {
     text-align: center;
   }
 
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav a {
-    margin: 5px 0;
-  }
-
-  form {
-    width: 100%;
-  }
-
   .imagen-principal {
-    width: 100vw;  
-    height: 40vh;  
+    width: 100vw;
+    height: 40vh;
   }
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Animación título */
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.letra {
+  display: inline-block;
+  animation: mover 2s infinite linear;
+}
+
+@keyframes mover {
+  50% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(0);
+  }
+}
+
+.titulo::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: rgba(0, 0, 0, 0.15);
+  transform: rotateY(45deg) translateZ(-30px);
+}
+
+.titulo:hover {
+  animation: girar 3s infinite alternate;
+}
+
+/* Estilo para el contenedor del carrusel */
+/* Carrusel */
+.carrusel {
+  position: relative;
+  width: 100%;  /* Ancho del carrusel */
+  max-width: 2500px;  /* Máximo ancho */
+  margin: 20px auto;  /* Margen superior e inferior */
+  padding: 0 20px;
+  overflow: hidden;
+  border-radius: 10px;  /* Bordes redondeados */
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenedor de las slides */
+.carrusel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cada slide */
+.carrusel-slide {
+  min-width: 100%;  /* Asegura que cada imagen ocupe todo el ancho del contenedor */
+  height: 300px;  /* Altura estándar de las imágenes en el carrusel */
+}
+
+/* Estilo para las imágenes dentro de las slides */
+.carrusel-slide img {
+  width: 100%;  /* La imagen ocupa todo el ancho del slide */
+  height: 100%;  /* La imagen ocupa toda la altura del slide */
+  object-fit: contain;  /* La imagen cubre el espacio sin deformarse */
+  border-radius: 10px;  /* Bordes redondeados para las imágenes */
+}
+/* Botones de control */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;  /* Ajusta la posición del botón anterior */
+}
+
+.next {
+  right: 10px;  /* Ajusta la posición del botón siguiente */
+}
+
+
+/* Estilo para el botón */
+#mi-boton {
+  margin-top: 20px;  /* Agrega espacio entre el video y el botón */
+  padding: 10px 20px;
+  background-color: #0466c8;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#mi-boton:hover {
+  background-color: #022c43;
 }
