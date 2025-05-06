@@ -4,22 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <style>
-    /* CSS para el estilo */
-    #followIcon {
-      position: absolute;
-      font-size: 50px;
-      transition: transform 0.1s ease;
-      pointer-events: none; /* Evita que el ícono interfiera con clics */
-      z-index: 9999; /* Asegura que el ícono esté por encima de otros elementos */
-    }
-  </style>
   <title>Concientización sobre el Autismo</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/contacto.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -34,7 +23,7 @@
       </ul>
     </nav>
   </header>
- 
+
   <!-- Contenido principal -->
   <main>
     <!-- Título colorido -->
@@ -75,31 +64,30 @@
       <h2>Conocé más sobre el Autismo</h2>
       <video controls width="100%" poster="assets/img/captura.png">
         <source src="assets/img/Video.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
       </video>
     </section>
-
+ 
   </main>
 
-  <!-- Carrusel -->
-  <section class="carrusel">
-    <div class="carrusel-container">
-      <div class="carrusel-slide">
-        <img src="assets/img/imagen1.jpg" alt="Imagen 1">
-      </div>
-      <div class="carrusel-slide">
-        <img src="assets/img/imagen2.jpg" alt="Imagen 2">
-      </div>
-      <div class="carrusel-slide">
-        <img src="assets/img/imagen3.jpeg" alt="Imagen3">
-      </div>
+ 
+  <!-- Carrusel de imágenes -->
+  <div class="carrusel">
+    <button class="prev">&#10094;</button>
+    <div class="carrusel-container" id="carrusel-container">
+      <div class="carrusel-slide"><img src="assets/img/imagen1.jpg" alt="Slide 1"></div>
+      <div class="carrusel-slide"><img src="assets/img/imagen2.jpg" alt="Slide 2"></div>
+      <div class="carrusel-slide"><img src="assets/img/imagen3.jpeg" alt="Slide 3"></div>
     </div>
-    <!-- Controles del carrusel -->
-    <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
-    <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
-  </section>
+    <button class="next">&#10095;</button>
+  </div>
 
-  <!-- Pie de página -->
+  <main>     <!-- Botón de saludo debajo del carrusel -->
+    <div style="text-align: center; margin: 30px 0;">
+      <button id="mi-boton">Click para saludo</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <p>© 2025 AutismoWeb.</p>
     <p>Desarrollado por JJR</p>
@@ -116,19 +104,29 @@
 
   <!-- Ícono que seguirá al cursor -->
   <i class="fas fa-heart" id="followIcon"></i>
-  
-  <script>
-    // JavaScript para seguir al cursor
-    const followIcon = document.getElementById('followIcon');
 
-    document.addEventListener('mousemove', function(event) {
-      const x = event.clientX;
-      const y = event.clientY;
-      followIcon.style.left = x + 'px';
-      followIcon.style.top = y + 'px';
+  <!-- Carrusel funcional -->
+  <script>
+    const container = document.getElementById('carrusel-container');
+    let index = 0;
+
+    function moverCarrusel(direction) {
+      index += direction;
+      const totalSlides = container.children.length;
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      container.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(() => moverCarrusel(1), 3000);
+  </script>
+
+  <!-- Funcionalidad del botón -->
+  <script>
+    document.getElementById("mi-boton").addEventListener("click", function () {
+      alert("¡Hola! Gracias por visitar la página 😊");
     });
   </script>
 
-  <button id="mi-boton">¡Haz clic para saludar!</button>
 </body>
 </html>

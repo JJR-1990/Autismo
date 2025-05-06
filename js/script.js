@@ -1,28 +1,33 @@
-console.log("El archivo script.js se cargó correctamente");
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector('.carrusel-container');
+  const slides = document.querySelectorAll('.carrusel-slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
 
-document.getElementById("mi-boton").addEventListener("click", saludar);
+  let index = 0;
 
-function saludar() {
-  alert("¡Gracias por visitar nuestra página!");
-}
-
-
-let index = 0;
-
-function moverCarrusel(direccion) {
-  const slides = document.querySelectorAll(".carrusel-slide");
-  index += direccion;
-  if (index < 0) {
-    index = slides.length - 1;
+  function moverCarrusel(direction) {
+    index += direction;
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    container.style.transform = `translateX(-${index * 100}%)`;
   }
-  if (index >= slides.length) {
-    index = 0;
-  }
-  const nuevoTransform = -index * 100;
-  document.querySelector(".carrusel-container").style.transform = `translateX(${nuevoTransform}%)`;
-}
 
-// Configurar carrusel para que avance automáticamente cada 3 segundos
-setInterval(() => {
-  moverCarrusel(1);
-}, 3000);
+  prevBtn.addEventListener('click', () => moverCarrusel(-1));
+  nextBtn.addEventListener('click', () => moverCarrusel(1));
+
+  setInterval(() => moverCarrusel(1), 3000);
+});
+
+document.addEventListener("mousemove", function (e) {
+  const icon = document.getElementById("followIcon");
+  if (icon) {
+    icon.style.left = e.pageX + "px";
+    icon.style.top = e.pageY + "px";
+  }
+});
+
+
+document.getElementById("mi-boton").addEventListener("click", function () {
+  alert("¡Hola! Gracias por visitar la página 😊");
+});
